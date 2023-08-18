@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Create a Quote</title>
+</head>
+
+<body>
+    <center>
+        <h1>Create a Quote</h1>
+        <form action="/quote/create" method="POST">
+            <label for="quote">Quote:</label><br>
+            <textarea id="quote" name="quote" rows="4" cols="50" required></textarea><br><br>
+
+            <label for="author">Author:</label><br>
+            <input type="text" id="author" name="author" required><br><br>
+
+            <input type="submit" value="Submit Quote">
+        </form>
+    </center>
+</body>
+
+</html>

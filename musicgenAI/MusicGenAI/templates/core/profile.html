@@ -1,0 +1,75 @@
+{% extends '../base/base.html' %}
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'core/profile-styles.css' %}">
+{% endblock style %}
+
+{% block body %}
+<br>
+<section class="profile-creation">
+    <div class="profile-form-container">
+        <h2 class="profile-title">Create Your Profile</h2>
+        <form id="profile-form" class="form">
+            <div class="form-group">
+                <label for="full-name">Full Name:</label>
+                <input type="text" id="full-name" name="full-name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password:</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+            </div>
+
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" required>
+            </div>
+
+            <div class="form-group">
+                <label>Gender:</label>
+                <label class="radio-label"><input type="radio" name="gender" value="male"> Male</label>
+                <label class="radio-label"><input type="radio" name="gender" value="female"> Female</label>
+                <label class="radio-label"><input type="radio" name="gender" value="other"> Other</label>
+            </div>
+
+            <div class="form-group">
+                <label for="preferred-genres">Preferred Genres:</label>
+                <select id="preferred-genres" name="preferred-genres" multiple>
+                    <option value="rock">Rock</option>
+                    <option value="pop">Pop</option>
+                    <option value="electronic">Electronic</option>
+                    <!-- Add more genre options here -->
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="preferred-moods">Preferred Moods:</label>
+                <select id="preferred-moods" name="preferred-moods" multiple>
+                    <option value="energetic">Energetic</option>
+                    <option value="calm">Calm</option>
+                    <option value="happy">Happy</option>
+                    <!-- Add more mood options here -->
+                </select>
+            </div>
+
+            <button class="profile-button" type="submit">Create Profile</button>
+        </form>
+    </div>
+</section>
+{% endblock body %}

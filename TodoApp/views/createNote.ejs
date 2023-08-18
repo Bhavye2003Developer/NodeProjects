@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <center>
+        <h1>Emperium Notes</h1>
+        <form action="/" method="POST">
+            <input type="text" name="note" id="note" placeholder="Enter note"
+                style="width: 400px;height: 30px;"><br><br>
+            <button type="submit">Add Note</button>
+        </form>
+
+        <br><br><br>
+        <h1>All your notes...</h1>
+
+        <% for(var i=0; i<notes['notes'].length; i++){ %>
+            <h3>
+                <%= notes['notes'][i]['note'] %>
+                    <button class="delete-button" data-note-id="<%= notes['notes'][i]['id'] %>">Delete</button>
+            </h3>
+            <% } %>
+
+    </center>
+
+    <script>
+        const noteContainer = document.querySelector('center');
+
+        noteContainer.addEventListener('click', async (e) => {
+            if (e.target.classList.contains('delete-button')) {
+                const noteId = e.target.getAttribute('data-note-id');
+
+                try {
+                    await fetch('/delete', {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ noteId })
+                    });
+
+                    // Remove the deleted note element from the UI
+                    const noteElement = e.target.closest('h3');
+                    noteElement.remove();
+                } catch (error) {
+                    console.error('An error occurred while sending the request:', error);
+                }
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>

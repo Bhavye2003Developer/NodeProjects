@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'core/styles.css' %}">
+  {% block style %}
+    
+  {% endblock style %}
+  <title>AI Music Platform</title>
+</head>
+<body>
+  {% include './nav.html' %}
+
+  {% block body %}
+  {% endblock body %}
+
+  <!-- More sections will go here -->
+
+  {% comment %} <footer>
+    <ul>
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Terms of Use</a></li>
+      <li><a href="#">Contact Us</a></li>
+    </ul>
+    <p>&copy; 2023 AI Music Platform</p>
+  </footer> {% endcomment %}
+</body>
+</html>
